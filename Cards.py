@@ -29,27 +29,32 @@ class Card:
         self.rank = rank
         self.value = value
 
-def get_deck(suits, ranks):
+def get_deck(suits:Suit, ranks:Rank) -> list[Card]:
+    #Constructs a list of Card which contains every rank in every suit
     deck = []
     for s in suits:
         for r in ranks:
+            #For ranks 1-9 the value and id is just the rank
             value = int(r.value)
             id = '' + str(r.value)
             match r:
+                #Case of picture card
                 case Rank.jack | Rank.king | Rank.queen:
                     value = 10
-                    id = id[:-2]
-                    id += r.name.upper()[0]
+                    id = id[:-2] #Remove the value from id
+                    id += r.name.upper()[0] #ID as the first letter of the rank (upper case)
+                #Case of ace
                 case Rank.ace:
-                    value = 1
-                    id = id[:-1]
-                    id += r.name.upper()[0]
-            id += s.name.upper()[0]
+                    value = 1 #Default value of 1
+                    id = id[:-1] #Remove value from id
+                    id += 'A'
+            
+            id += s.name.upper()[0] #Add suit to id
             
             deck.append(Card(id, s, r, value))
     return deck
 
-def shuffle_deck(deck):
+def shuffle_deck(deck:list): #Included this so that random module is not needed to import, only this module
     random.shuffle(deck)
     return deck
 
