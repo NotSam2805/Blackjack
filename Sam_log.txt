@@ -2646,3 +2646,14 @@ Lost:10.0
 Credit:90.0
 Credit:90.0
 Credit:90.0
+Bet:10.0
+Credit:80.0
+Lost:10.0
+Credit:80.0
+Credit:80.0
+Bet:20.0
+Credit:60.0
+Won:40.0
+Credit:100.0
+Credit:100.0
+Credit:100.0
